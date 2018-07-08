@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% if form.errors.non_feild_errors %}
+{{ form.errors.non_field_errors }}
+{% endif %}
+<form class="form text-center" method="POST">{% csrf_token %}
+{% for field in form %}
+                    <div class="form-group">
+                        {{ field.errors }}
+                        {{field}}
+                    </div>
+                    {% endfor %}
+<button class="btn btn-success" type="submit">SUBMIT</button>
+</form>
+{% endblock content %}
